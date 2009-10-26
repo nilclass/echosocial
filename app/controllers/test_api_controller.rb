@@ -4,7 +4,7 @@ class TestApiController < WebServiceController
 
   
   include WikiPageHelper
-  
+  include UrlHelper
   protect_from_forgery :secret => Conf.secret
   allow_forgery_protection
   
@@ -21,6 +21,24 @@ class TestApiController < WebServiceController
     #simpliness ;)
     p = Page.find_by_name(name)
     page = { :title => p.title, :content => wiki_body_html(p.wiki)}
+  end
+  
+  def get_random_image_from_gallery(title)
+    g = Gallery.find_by_title(title)
+    g.images.first(:order => 'rand()').thumbnail(:medium).url 
+  end
+  
+  def get_full_image(thumbnail_url)
+    filename = url_to_filename(thumbnail_url)
+    Thumbnail.find_by_filename(filename).parent.url
+  end
+  
+  private
+  
+  #Todo - this should be in a helper
+  
+  def url_to_filename(url)
+    url.gsub(/.*\//,'')
   end
 
 end
