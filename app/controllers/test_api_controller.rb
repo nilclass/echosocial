@@ -20,7 +20,7 @@ class TestApiController < WebServiceController
     #group = Group.find_by_name(group)
     #simpliness ;)
     p = Page.find_by_name(name)
-    page = { :title => p.title, :content => wiki_body_html(p.wiki)}
+    { :title => p.title, :content => wiki_body_html(p.wiki)}
   end
   
   def get_random_image_from_gallery(title)
