@@ -243,7 +243,7 @@ module FlashMessageHelper
       code = File.readlines(file)
       line = line.to_i
       min = [line - 2, 0].max
-      max = line + 2
+      max = [line + 2, code.size - 1].min
       (min..max).each do |n|
         if n == line
           message << "=> "
