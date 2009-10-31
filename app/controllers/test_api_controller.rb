@@ -16,10 +16,10 @@ class TestApiController < WebServiceController
     end
   end
 
-  def get_page_by_name(name)
+  def get_page(page_id)
     #group = Group.find_by_name(group)
     #simpliness ;)
-    p = Page.find_by_name(name)
+    p = Page.find(page_id)
     { :title => p.title, :content => wiki_body_html(p.wiki)}
   end
   
@@ -31,6 +31,14 @@ class TestApiController < WebServiceController
   def get_full_image(thumbnail_url)
     filename = url_to_filename(thumbnail_url)
     Thumbnail.find_by_filename(filename).parent.url
+  end
+  
+  def get_pages_for_group(group)
+    if group = Group.find_by_name(group)
+      group.pages.find_all_by_public_and_type(true,'WikiPage').map do |page|
+        {:id => page.id, :title => page.title} 
+      end
+    end
   end
   
   private
