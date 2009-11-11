@@ -48,7 +48,7 @@ module RootHelper
   end
 
   def sidebar_top_partial
-    'sitebox_top'
+    'sidebox_top'
   end
   
 end
