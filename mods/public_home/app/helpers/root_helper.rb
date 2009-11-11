@@ -12,7 +12,7 @@ module RootHelper
 
   def sidebar_top_partial
     if logged_in?
-      'sitebox_top'
+      'sidebox_top'
     else
       '/account/login_form_box'
     end
