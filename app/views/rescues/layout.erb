@@ -168,6 +168,9 @@
          <%= hidden_field_tag('error_action', request.parameters['action']) %>
          <%= hidden_field_tag('exception_detailed_message', exception_detailed_message(@exception)) %>
          <%= hidden_field_tag('full_backtrace', @exception.clean_backtrace.join("\n")) %>
+         <%= hidden_field_tag('context', @context) %>
+         <%= hidden_field_tag('referer', request.referer) %>
+         <%= hidden_field_tag('uri', request.url) %>
          <br>
          <p><%= submit_tag(I18n.t(:exception_bug_report_link)) %></p>
        <% end %>
