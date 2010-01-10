@@ -286,7 +286,7 @@ de:
   invite_not_found: "Einladung nicht gefunden"
   join_group_link: "Join {{group_type}}"
   join_group_success: "Du hast dich der Gruppe {{group_name}} angeschlossen."
-  join_request_info: "Du wirst erst dann Mitglied dieser Gruppe, wenn Deine Anfrage genehmigt wurde. Du kannst den Status Deiner Anfrage überprüfen, indem Du \"{{my_requests_url}}\" besuchst."
+  join_request_info: "Du wirst erst dann Mitglied dieser Gruppe, wenn Deine Anfrage genehmigt wurde. Du kannst den Status Deiner Anfrage überprüfen, indem Du \"{{link_to_requests}}\" besuchst."
   joins_the_chatroom: "Chatraum betreten"
   language: Sprache
   large: groß
