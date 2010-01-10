@@ -1048,7 +1048,7 @@ en:
 
   entity_autocomplete_tip: "Enter the name of a group or person."
 
-  notice_with_message: "with message {{mesage}}"
+  notice_with_message: "with message {{message}}"
 
   # creating
 
