@@ -19,6 +19,7 @@ enabled_languages:
   - pt
   - ar
 enabled_mods:
+  - localized_pages
 #  - super_admin
 enabled_tools:
   - asset_tool

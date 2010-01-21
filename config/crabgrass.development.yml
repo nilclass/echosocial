@@ -19,6 +19,7 @@ title: "Crabgrass Development"
 
 enabled_mods:
    - design_tester
+   - localized_pages
 #  - super_admin
 #  - moderation
 #  - translator
