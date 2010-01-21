@@ -1,5 +1,5 @@
 module LocalizedPages
-  module PageExtension
+  module ModelExtension
     def self.included(base)
       base.instance_eval do 
         cattr_accessor :current_language_code
@@ -36,14 +36,15 @@ module LocalizedPages
   module ControllerExtension
     def self.included(base)
       base.instance_eval do
-        before_filter :set_language_code_for_pages
+        before_filter :set_language_code_for_models
       end
     end
     
-    def set_language_code_for_pages
+    def set_language_code_for_models
       set_language unless session[:language_code]
       if code = session[:language_code]
         Page.current_language_code = code.to_s
+        MenuItem.current_language_code = code.to_s
       end
     rescue NameError
       # some controllers (e.g. StaticController) don't have set_language defined
