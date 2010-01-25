@@ -1,6 +1,6 @@
 module Admin::SitesHelper
   def signup_mode_description(mode)
-    :default => 0, :closed => 1, :invite_only => 2, :verify_email => 3
+    # :default => 0, :closed => 1, :invite_only => 2, :verify_email => 3
 
     case mode
     when :default
