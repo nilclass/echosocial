@@ -70,11 +70,11 @@ class Site < ActiveRecord::Base
   ##
 
   named_scope :for_domain, lambda {|domain|
-    {:conditions => ['sites.domain = ? AND sites.id IN (?)', domain, Conf.enabled_site_ids]}
+    {:conditions => Conf.dynamic_sites ? ['sites.domain = ? AND sites.enabled = ?', domain, true] : ['sites.domain = ? AND sites.id IN (?)', domain, Conf.enabled_site_ids]}
   }
 
   def self.default
-    Site.find(:first, :conditions => ["sites.default = ? AND sites.id in (?)", true, Conf.enabled_site_ids])
+    Site.find(:first, :conditions => Conf.dynamic_sites ? ['sites.default = ? AND sites.enabled = ?', true, true] : ["sites.default = ? AND sites.id in (?)", true, Conf.enabled_site_ids])
   end
 
   # def stylesheet_render_options(path)

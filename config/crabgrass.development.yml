@@ -15,7 +15,9 @@
 #  * to work with super_admin, enable super_admin mod and site 'site1'.
 #
 
-title: "Crabgrass Development"
+title: "EchoSocial Development"
+
+dynamic_sites: true
 
 enabled_mods:
    - design_tester

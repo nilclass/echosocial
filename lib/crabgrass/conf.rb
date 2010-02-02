@@ -81,6 +81,9 @@ class Conf
   # used for error reporting
   cattr_accessor :configuration_filename
 
+  # if true, skips the usual site configuration and uses the database only
+  cattr_accessor :dynamic_sites
+
   # cattr_accessor doesn't work with ?
   def self.chat?; self.chat; end
   def self.limited?; self.limited; end
