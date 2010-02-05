@@ -1,0 +1,5 @@
+host: localhost
+port: 8081
+# TODO: put your ApiSwitch key here
+key: 
+namespace: echosocial
