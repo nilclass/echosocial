@@ -20,6 +20,7 @@ enabled_languages:
   - ar
 enabled_mods:
   - multiple_site_domains
+  - auto_council
 #  - super_admin
 enabled_tools:
   - asset_tool

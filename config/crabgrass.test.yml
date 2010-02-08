@@ -13,6 +13,7 @@ title: "Crabgrass Testing"
 dynamic_sites: true
 enabled_mods:
   - multiple_site_domains
+  - auto_council
 sites:
 # bound to localhost:
 #  - name: site1

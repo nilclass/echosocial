@@ -775,6 +775,9 @@ en:
   this_is_coordinating: "This is the <strong>coordinating council</strong> for {{parent_group}}."
   new_council: "New council for group {{group_name}}"
   council_help_text: "If this group has a coordinating council, then only a member of that council may administer the group. Otherwise, any member of the group may do so."
+  create_council: "Create Council"
+  council_name: "Council Name"
+  council_name_description: "If no name is given the council will be named 'council'"
 
   # committee
 

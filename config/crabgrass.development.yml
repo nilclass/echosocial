@@ -23,6 +23,7 @@ enabled_mods:
    - design_tester
    - public_facing
    - multiple_site_domains
+   - auto_council
 #  - super_admin
 #  - moderation
 #  - translator
