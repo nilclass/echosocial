@@ -1,0 +1,8 @@
+<% @title_box = '<h1>Add Domain</h1>' -%>
+
+<% form_for [:admin, @site_domain] do |f| -%>
+<%= f.error_messages %>
+<%= f.label :domain %>
+<%= f.text_field :domain %>
+<%= f.submit "Add" %>
+<% end -%>
