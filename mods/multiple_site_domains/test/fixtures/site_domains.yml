@@ -1,0 +1,12 @@
+
+local_site_domain_1:
+  site_id: 1
+  domain: test.localhost
+
+local_site_domain_2:
+  site_id: 1
+  domain: xyz.localhost
+
+test_site_domain_1:
+  site_id: 2
+  domain: test.example

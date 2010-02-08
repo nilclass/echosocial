@@ -22,6 +22,7 @@ dynamic_sites: true
 enabled_mods:
    - design_tester
    - public_facing
+   - multiple_site_domains
 #  - super_admin
 #  - moderation
 #  - translator
