@@ -163,3 +163,4 @@ PAGES = PageClassRegistrar.proxies.dup.freeze
 Conf.available_page_types = PAGES.keys if Conf.available_page_types.empty?
 
 
+require 'mediawiki_to_greencloth'
