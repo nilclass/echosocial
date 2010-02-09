@@ -3,7 +3,7 @@
 #
 class RootController < ApplicationController
   def index
-    if current_site.network
+    if current_site.public_home? && current_site.network
       site_home
     elsif !logged_in?
       login_page
