@@ -26,6 +26,7 @@ enabled_mods:
    - auto_council
    - restricted_groups
    - localized_pages
+   - public_home
 #  - super_admin
 #  - moderation
 #  - translator

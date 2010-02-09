@@ -23,6 +23,7 @@ enabled_mods:
   - auto_council
   - localized_pages
 #  - super_admin
+  - public_home
 enabled_tools:
   - asset_tool
   - core_tools

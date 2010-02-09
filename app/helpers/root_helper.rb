@@ -42,5 +42,14 @@ module RootHelper
       link_to_with_icon 'weather_sun', I18n.t(:see_tips_to_get_started), '/?welcome_box=1'
     end
   end
+  
+  def titlebox_description_html
+    @group.profiles.public.summary_html
+  end
+
+  def sidebar_top_partial
+    'sidebox_top'
+  end
+  
 end
 

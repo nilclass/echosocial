@@ -104,7 +104,7 @@ form.mini_search table {
 <table>
 <tr>
   <td>
-    <p class="description" style="margin: 0"><%= @group.profiles.public.summary_html %></p>
+    <p class="description" style="margin: 0"><%= titlebox_description_html %></p>
   </td>
   <td style="padding-left: 1em">
     <%= display_media(@group.profiles.public.cover) %>
@@ -116,6 +116,7 @@ form.mini_search table {
 </ul>
 &nbsp;<%= link_to(I18n.t(:edit), groups_menu_items_url(:action => :index), :class=>'small_icon pencil_16') if may_edit_menu? %>
 <% end %>
+
 <% if params[:welcome_box] && logged_in? -%>
   <div id='welcome_box'>
     <div class="inset_box round">

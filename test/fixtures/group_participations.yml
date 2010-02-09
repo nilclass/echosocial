@@ -64,6 +64,24 @@ true_levellers_video1:
   group_id: 1
   access: 1
 
+animals_wiki1:
+  id: 47
+  page_id: 301
+  group_id: 2
+  access: 1
+
+animals_wiki2:
+  id: 48
+  page_id: 302
+  group_id: 2
+  access: 1
+
+animals_wiki3:
+  id: 49
+  page_id: 303
+  group_id: 2
+  access: 1
+
 <% for i in 1..20 %>
 networkpage_<%=i%>:
   id: 5<%= i %>

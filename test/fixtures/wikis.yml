@@ -64,3 +64,18 @@ for_public:
   id: 6
   body: the body of the wiki, which is text suitable for running through green cloth
   version: 1
+
+animals_first_wiki:
+  id: 7
+  body: This is a wiki page, that will belong to animals from start on
+  version: 1
+
+animals_second_wiki:
+  id: 8
+  body: this is another wikipage, belonging to animals, with a lot of interesting content
+  version: 1
+
+animals_third_wiki:
+  id: 9
+  body: yet another such wiki, for erm, yeah testing purposes
+  version: 1

@@ -414,6 +414,50 @@ survey_blank:
   updated_at: "<%= updated.minutes.ago.to_s(:db) %>"
   created_at: "<%= created.minutes.ago.to_s(:db) %>"
 
+animals_first_wiki:
+  id: 301
+  title: Animals First Wiki
+  type: WikiPage
+  public: true
+  data_type: Wiki
+  data_id: 7
+  created_by_id: 1
+  created_by_login: penguin
+  owner_type: Group
+  owner_id: 2
+
+animals_second_wiki:
+  id: 302
+  title: Animals Second Wiki
+  public: true
+  type: WikiPage
+  data_type: Wiki
+  data_id: 8
+  created_by_id: 1
+  created_by_login: penguin
+  owner_type: Group
+  owner_id: 2
+<% updated = rand(4320); created = updated + rand(4320) %>
+  updated_at: "<%= updated.minutes.ago.to_s(:db) %>"
+  created_at: "<%= created.minutes.ago.to_s(:db) %>"
+
+animals_third_wiki:
+  id: 303
+  title: Animals Third Wiki
+  public: true
+  type: WikiPage
+  data_type: Wiki
+  data_id: 9
+  created_by_id: 1
+  created_by_login: penguin
+  owner_type: Group
+  owner_name: animals
+  owner_id: 2
+<% updated = rand(4320); created = updated + rand(4320) %>
+  updated_at: "<%= updated.minutes.ago.to_s(:db) %>"
+  created_at: "<%= created.minutes.ago.to_s(:db) %>"
+
+
 #announcement:
 #  name:
 #  created_by_login: blue
