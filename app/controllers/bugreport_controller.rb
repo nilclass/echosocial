@@ -7,7 +7,7 @@ class BugreportController < ApplicationController
     else
       options = {:dev_email => current_site.dev_email}
       options.merge(mailer_options)
-      Mailer.deliver_send_bugreport(params, options)
+      Mailer.deliver_send_bugreport(params.merge(:user => current_user), options)
       flash_message :title => "Bug Report Sent",
         :success => "Thank you for submitting the bug report!"
     end

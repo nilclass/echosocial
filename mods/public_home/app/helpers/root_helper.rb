@@ -3,8 +3,8 @@ module RootHelper
     if logged_in?
       @group.profiles.public.summary_html
     else
-      welcome = h "Welcome to {site_title}"[:welcome_title, current_site.title]
-      message = first_with_any(:welcome_login_message.t, :welcome_message.t)
+      welcome = I18n.t(:welcome_title, :site_title => current_site.title)
+      message = first_with_any(I18n.t(:welcome_login_message), I18n.t(:welcome_message))
       content_tag(:h1, welcome) <<
         format_text(message)
     end

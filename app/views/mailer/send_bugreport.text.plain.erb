@@ -1,6 +1,6 @@
 Greetings!
 
-A bug report has been submitted from site: <%= @site %>. 
+A bug report has been submitted from site: <%= @site.try.name %> (<%= @site.try.title %>). 
 
 User comments:
 <%= @comments %>
@@ -8,6 +8,10 @@ User comments:
 Exception class: <%= @exception_class %>
 Error controller: <%= @error_controller %>
 Error action: <%= @error_action %>
+Context: <%= @context %>
+User: <%= @user.try.login %>
+Referer: <%= @referer %>
+URI: <%= @uri  %>
 
 Exception detailed messaage:
 <%=h @exception_message %>
