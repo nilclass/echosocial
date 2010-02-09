@@ -25,6 +25,7 @@ enabled_mods:
    - multiple_site_domains
    - auto_council
    - restricted_groups
+   - localized_pages
 #  - super_admin
 #  - moderation
 #  - translator
