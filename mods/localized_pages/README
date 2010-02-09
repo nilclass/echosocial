@@ -1,0 +1,22 @@
+Summary
+-------
+
+Creates a distinct environment for each language, where people will only see pages in the current language.
+Can be configured via the "localized_pages" flag of the site. Currently there's no UI.
+
+Installation
+------------
+
+Generate the migration:
+
+  script/generate plugin_migration localized_pages
+
+Migrate the database:
+
+  rake db:migrate
+
+
+Authors
+-------
+
+Niklas E. Cathor <niklas@brueckenschlaeger.de>
