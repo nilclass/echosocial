@@ -1,0 +1,22 @@
+
+Summary
+-------
+
+Optionally restricts group / network creation to admins.
+This behaviour can be configured per site via the Admin UI.
+
+Installation
+------------
+
+Generate the plugin migration:
+
+  script/generate plugin_migration restricted_groups
+
+Migrate the database:
+
+  rake db:migrate
+
+Authors
+-------
+
+Niklas E. Cathor <niklas@brueckenschlaeger.de>

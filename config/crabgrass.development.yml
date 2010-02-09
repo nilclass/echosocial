@@ -24,6 +24,7 @@ enabled_mods:
    - public_facing
    - multiple_site_domains
    - auto_council
+   - restricted_groups
 #  - super_admin
 #  - moderation
 #  - translator

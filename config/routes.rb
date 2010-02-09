@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.from_plugin :translator   rescue NameError
   map.from_plugin :moderation  rescue NameError
   map.from_plugin :multiple_site_domains rescue NameError
+  map.from_plugin :restricted_groups rescue NameError
 
   map.namespace :admin do |admin|
     admin.resources :announcements

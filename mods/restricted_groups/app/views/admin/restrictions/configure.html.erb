@@ -1,0 +1,30 @@
+<% @info_box = '<h1>Group / Network Restrictions</h1>' -%>
+
+<% form_tag(:controller => 'admin/sites', :action => 'update') do -%>
+<%= Formy.form do |f|
+      f.row do |r|
+        r.label "Only admins can create groups"
+        r.input check_box('site', 'group_creation_restricted')
+        r.info "Configure who can create a group."
+      end
+
+      f.row do |r|
+        r.label "Show groups tab"
+        r.input check_box('site', 'group_tab_visible')
+        r.info "Show the groups tab in the main menu"
+      end
+
+      f.row do |r|
+        r.label "Only admins can create networks"
+        r.input check_box('site', 'network_creation_restricted')
+        r.info "Configure who can create a network."
+      end
+
+      f.row do |r|
+        r.label "Show networks tab"
+        r.input check_box('site', 'network_tab_visible')
+        r.info "Show the networks tab in the main menu"
+      end
+    end %>
+<%= submit_tag "Save" %>
+<% end -%>
