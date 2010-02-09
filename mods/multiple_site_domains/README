@@ -1,0 +1,23 @@
+
+Summary
+-------
+Provides the possibility to add more domains to a site.
+This is done by adding a new model: SiteDomain. Domains can
+be configured through the site admin UI.
+
+Installation
+------------
+
+Generate the migration:
+
+  script/generate plugin_migration multiple_site_domains
+
+Migrate the database:
+
+  rake db:migrate
+
+
+Authors
+-------
+
+Niklas E. Cathor <niklas@brueckenschlaeger.de>

@@ -1,0 +1,17 @@
+
+Summary
+-------
+
+Alters the group creation process to make council-creation more easy.
+This targets the problem that people don't get the permission system and hence open their
+groups for everyone without noticing.
+
+Installation
+------------
+
+simply add the mod to your 'enabled_mods' list in the config. No extra setup steps required.
+
+Authors
+-------
+
+Niklas E. Cathor <niklas@brueckenschlaeger.de>
