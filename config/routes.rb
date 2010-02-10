@@ -21,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   map.from_plugin :moderation  rescue NameError
   map.from_plugin :multiple_site_domains rescue NameError
   map.from_plugin :restricted_groups rescue NameError
+  map.from_plugin :mod_settings rescue NameError
 
   map.namespace :admin do |admin|
     admin.resources :announcements
@@ -129,9 +130,9 @@ ActionController::Routing::Routes.draw do |map|
   ##
   ## WEB SERVICE
   ##
-  
+
   map.connect 'test-api/:action/:id', :controller => 'test_api'
-  
+
   ##
   ## DEFAULT ROUTE
   ##

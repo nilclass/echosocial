@@ -27,6 +27,7 @@ enabled_mods:
    - restricted_groups
    - localized_pages
    - public_home
+   - mod_settings
 #  - super_admin
 #  - moderation
 #  - translator
