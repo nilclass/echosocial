@@ -55,6 +55,13 @@ end
 #end
 
 Rails::Initializer.run do |config|
+
+  # RAILS < 2.3 comes with a broken ActiveSupport::JSON implementation.
+  # (http://stackoverflow.com/questions/683989/how-do-you-deal-with-the-conflict-between-activesupportjson-and-the-json-gem)
+  # Loading JSON here fixes the problem:
+  gem 'json_pure'
+  require 'json/pure'
+
   ###
   ### (2) CONFIG BLOCK
   ###

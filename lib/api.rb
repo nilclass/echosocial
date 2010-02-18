@@ -27,7 +27,7 @@ module CGApiHelper
       { :type => object.class.name,
         :id => object.id,
         :attributes => attributes.inject({}) { |attrs, attr|
-          object.read_attribute(attr)
+          attrs[attr] = object.read_attribute(attr) ; attrs
         }
       }
     end
