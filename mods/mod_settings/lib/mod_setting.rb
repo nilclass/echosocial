@@ -48,7 +48,8 @@ class ModSetting
     @type = @type.to_sym
     raise ArgumentError.new("Invalid type: #{@type} - valid types are: #{TYPES.inspect}") unless TYPES.include?(@type)
     raise ArgumentError.new("You need to provide options when defining a enumerable") if @type == :enumerable && !@options
-    raise "Sites don't have a '#{name}' column! Did you create the migration and migrate the database? " unless Site.column_names.include?(name.to_s)
+    # FIXME: figure out how to do this test without breaking "script/generate plugin_migration"
+    #raise "Sites don't have a '#{name}' column! Did you create the migration and migrate the database? " unless Site.column_names.include?(name.to_s)
   end
 
   def setup_enumerable
