@@ -1,0 +1,38 @@
+
+Summary
+-------
+
+Allows login via CAS enabled SSO (Single-Sing-On) servers. Once enabled (via the site admin), login can only be performed
+via CAS, the usual login won't work anymore. Anyway, the user logging in via CAS has to exist already in order to login.
+If you want to change this behaviour you can do it:
+
+  CAS::Hook.register(:create_user) do |login|
+    # put your code to create a new crabgrass user here
+  end
+
+Prerequisites
+-------------
+
+- rubycas-client gem (the tests however depend on latest HEAD from http://github.com/gunark/rubycas-client [I'm using commit 171ccef])
+- mod_settings crabgrass mod (is used to register plugin settings with the administration panel, get it from git://0xb5.org/crabgrass-mods.git)
+
+Optional:
+- rubycas-server (or any other CAS compliant SSO solution)
+
+Installation
+------------
+
+Add the mod to your mods_enabled list, then generate the migrations:
+
+  script/generate plugin_migration cas_login
+
+..and migrate the database:
+
+  rake db:migrate
+
+..then go to the Crabgrass Administration Panel and configure CAS login under "Plugin Settings".
+
+Authors
+-------
+
+Niklas E. Cathor <niklas@brueckenschlaeger.de>

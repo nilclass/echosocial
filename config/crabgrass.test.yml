@@ -14,6 +14,8 @@ dynamic_sites: true
 enabled_mods:
   - multiple_site_domains
   - auto_council
+  - mod_settings
+  - cas_login
 sites:
 # bound to localhost:
 #  - name: site1

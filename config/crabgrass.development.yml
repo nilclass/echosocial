@@ -31,6 +31,7 @@ enabled_mods:
 #  - super_admin
 #  - moderation
 #  - translator
+   - cas_login
 
 email:
   delivery_method: :sendmail
