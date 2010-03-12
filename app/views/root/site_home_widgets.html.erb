@@ -1,0 +1,116 @@
+<%# THIS IS JUST A TEMPORARY STOP GAP FOR NOW. NOTHING HERE IS FOR THE FUTURE %>
+<% content_for :style do %>
+.info_box h3 {
+  margin-bottom:0;
+  margin-top:1em;
+  padding-bottom:0;
+}
+.info_box td {
+  padding: 0 1em 1em 0;
+  vertical-align: top;
+}
+/*
+table.entities {
+  width: 100%;
+}
+table.entities td {
+  width: 50%;
+  vertical-align: top;
+}*/
+
+.sidebox {
+  background: white;
+  border: 1px solid #999;
+  padding: 1em;
+}
+
+.margin {
+  margin: 0 0 1em;
+}
+.sidebox.dark a {
+  color: #333;
+}
+.sidebox.dark h2 {
+  font-size: 1.7em
+}
+.dash_box {
+  margin-right: 0;
+}
+.right_column {
+  width: 18em;
+}
+.title_box table td {vertical-align: top}
+form.mini_search table {
+  width: 18em;
+}
+
+/** expanded page list **/
+.page_list.expanded .info {
+  float: right;
+  border:none !important;
+  background: #fff !important;
+}
+.page_list.expanded .info .link_line {
+  border:none !important;
+}
+.page_list.expanded .title {
+  float: left;
+}
+.page_list.expanded .title a {
+   font-weight: bold;
+   color: #444;
+   font-size: 1.25em;
+}
+.page_list.expanded .page_row {
+  margin-bottom: 1.25em;
+  padding-bottom: 1.25em;
+  border-bottom: 1px dotted #ccc;
+  color: #666;
+}
+.page_list.expanded .summary {
+  clear: both;
+  font-size: 0.9em;
+  padding-top: 0.7em;
+}
+.page_list.expanded .tags {
+  margin-top: 0.25em;
+  color: #666;
+  font-size: 0.9em;
+  font-style: italic;
+}
+.page_list.expanded .tags a {
+  color: #666;
+}
+.page_list.expanded .cover img {
+  float: left;
+  margin-right: 1em;
+}
+<% end %>
+
+<% content_for :left_sidebar do -%>
+<!-- <div class="sidebox"> -->
+  <ul id="top-links">
+    <%= li_if contribute_link %>
+  </ul>
+<h4 class=first><%= I18n.t(:members) %></h4>
+
+<%= render :partial => 'avatars/entity_boxes', :locals => {:header => I18n.t(:most_active_members), :entities => most_active_users(), :after => link_to(I18n.t(:view_all)) } %>
+
+<br class='clear'/>
+
+
+
+<h4><%= I18n.t(:groups) %></h4>
+
+<%= render :partial => 'avatars/entity_boxes', :locals => {:header => I18n.t(:most_active_groups), :entities => most_active_groups(), :after => link_to(I18n.t(:view_all)) } %>
+
+<br class='clear'/>
+
+<!-- </div>  -->
+
+<ul class="clear">
+  <li>
+    <%= [configure_site_network_link, configure_site_link, configure_site_appearance_link].compact.join('</li><li>') %>
+  </li>
+</ul>
+<% end -%>

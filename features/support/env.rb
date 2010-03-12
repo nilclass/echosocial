@@ -39,7 +39,7 @@ Spork.each_run do
 
     # make a site for this host and enable site testing
     @site = Site.make(:domain => @host)
-    Conf.enable_site_testing
+    Conf.enable_site_testing(@site)
 
     Sham.reset
   end

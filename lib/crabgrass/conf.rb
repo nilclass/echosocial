@@ -84,6 +84,9 @@ class Conf
   # used to run the tests even though the translations are messed up
   cattr_accessor :raise_i18n_exceptions
 
+  # used for sitehome widgets, to validate that the cell name specified by the user is correct
+  cattr_accessor :available_cells
+
   # cattr_accessor doesn't work with ?
   def self.chat?; self.chat; end
   def self.limited?; self.limited; end
@@ -126,6 +129,10 @@ class Conf
     self.default_page_access = :admin
     self.text_editor   = TEXT_EDITOR[:greencloth_only]
     self.use_full_geonames_data = false
+
+    # used for the sitehome widgets, see above
+    self.available_cells = Dir[File.join(RAILS_ROOT, 'app', 'cells', '*_cell.rb')].map{ |f|
+      File.basename(f).sub('_cell.rb', '') }
   end
 
   def self.load(filename)

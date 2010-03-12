@@ -1,6 +1,5 @@
 
 require 'rubygems'
-
 gem 'mocha'
 require 'mocha'
 
