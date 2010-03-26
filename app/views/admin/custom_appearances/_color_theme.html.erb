@@ -2,7 +2,7 @@
   <% form_for @appearance do |f| %>
     <%= input_selected_tab('color_theme') %>
 
-    <% f.fields_for :parameters do |p| -%>
+    <% f.fields_for :smart_parameters do |p| -%>
     <table>
       <% CustomAppearance.available_parameters(true).each_pair.to_a[0..20].each do |key, value| %>
       <tr>

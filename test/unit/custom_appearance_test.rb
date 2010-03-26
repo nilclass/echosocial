@@ -120,4 +120,46 @@ class CustomAppearaceTest < ActiveSupport::TestCase
       assert valid_types.include?(value[:type]), "Type given for #{key} in constants.sass is invalid: #{value[:type]}" if value[:type]
     end
   end
+
+  def test_smart_parameters
+    appearance = custom_appearances(:default_appearance)
+    smart_params = appearance.smart_parameters
+    assert smart_params.kind_of?(CustomAppearance::Parameter::Parameters)
+    CustomAppearance.available_parameters.each_pair do |key, value|
+      assert smart_params[key], "Expected appearance smart params to contain #{key}. Well, but it doesn't."
+    end
+    # test border and size
+    appearance.parameters['outer_border'] = "1px solid #999"
+    smart_params = appearance.smart_parameters
+    assert_equal smart_params['outer_border'], smart_params.outer_border, "Excpected method call to return the same thing as a hash lookup"
+    outer_border = smart_params.outer_border
+    assert outer_border.kind_of?(CustomAppearance::Parameter::Border)
+    assert_equal 'solid', outer_border.style
+    assert_equal '#999', outer_border.color
+    assert outer_border.size.kind_of?(CustomAppearance::Parameter::Size)
+    assert_equal '1', outer_border.size.value
+    assert_equal 'px', outer_border.size.unit
+    # test margin / padding (i.e. the same)
+    appearance.parameters['menu_item_padding'] = '1em 2em 3em 4px'
+    smart_params = appearance.smart_parameters
+    menu_item_padding = smart_params.menu_item_padding
+    assert_equal '1', menu_item_padding.top.value
+    assert_equal 'em', menu_item_padding.top.unit
+    assert_equal '4', menu_item_padding.left.value
+    assert_equal 'px', menu_item_padding.left.unit
+    appearance.parameters['menu_item_padding'] = '12em 3em'
+    smart_params = appearance.smart_parameters
+    menu_item_padding = smart_params.menu_item_padding
+    assert_equal '12', menu_item_padding.top.value
+    assert_equal '12', menu_item_padding.bottom.value
+    assert_equal '3', menu_item_padding.left.value
+    assert_equal '3', menu_item_padding.right.value
+    appearance.parameters['menu_item_padding'] = '7em'
+    smart_params = appearance.smart_parameters
+    menu_item_padding = smart_params.menu_item_padding
+    assert_equal '7', menu_item_padding.top.value
+    assert_equal '7', menu_item_padding.right.value
+    assert_equal '7', menu_item_padding.bottom.value
+    assert_equal '7', menu_item_padding.left.value
+  end
 end

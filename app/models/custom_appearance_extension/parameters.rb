@@ -113,8 +113,7 @@ module CustomAppearanceExtension
       self.parameters['masthead_display'] = display
     end
 
-    def parameters=(params)
-      current_params = self.parameters
+    def smart_parameters=(params)
       params.each_pair do |key, value|
         self.parameters[key] = if value.nil?
                                  nil
@@ -136,6 +135,23 @@ module CustomAppearanceExtension
                                    logger.fatal("Unhandled CA parameter: #{key.inspect} -> #{value.inspect}")
                                  end
                                end
+      end
+    end
+
+    # builds a hash based object with a object-like interface that contains all available parameters
+    # as objects descended from CustomAppearance::Parameter::Base. These parameter objects can be used
+    # in conjunction with the Rails FormBuilder (and they are, in the colortheme editor).
+    def smart_parameters
+      self.class.available_parameters(true).each_pair.inject(CustomAppearance::Parameter::Parameters.new) do |params, (key, spec)|
+        default = spec[:default]
+        type = spec[:type]
+        value = (self.parameters[key.to_s] || default)
+        if klass = CustomAppearance::Parameter.for(type)
+          params[key] = value ? klass.parse(value) : klass.new
+        else
+          params[key] = value
+        end
+        next(params)
       end
     end
 
