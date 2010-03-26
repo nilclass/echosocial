@@ -107,6 +107,17 @@ class CustomAppearaceTest < ActiveSupport::TestCase
   end
 
   def test_available_parameters
-    assert CustomAppearance.available_parameters.is_a?(Hash)
+    assert (without_types = CustomAppearance.available_parameters).is_a?(Hash)
+
+    # make sure that legacy behaviour still works
+    assert without_types['outer_border'].kind_of?(String)
+    # and that types are parsed as well
+    assert (with_types = CustomAppearance.available_parameters(true)).is_a?(Hash)
+    assert with_types['outer_border'][:type] == 'border'
+    # this doesn't test the custom appearance, but that constants.sass has only correct types
+    valid_types = CustomAppearance.valid_parameter_types
+    with_types.each_pair do |key, value|
+      assert valid_types.include?(value[:type]), "Type given for #{key} in constants.sass is invalid: #{value[:type]}" if value[:type]
+    end
   end
 end

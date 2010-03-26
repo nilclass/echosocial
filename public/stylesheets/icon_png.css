@@ -6,6 +6,9 @@
 .arrow_right_16 {background-image: url(/images/png/16/arrow_right.png)}
 .arrow_up_16 {background-image: url(/images/png/16/arrow_up.png)}
 .arrow2_right_16 {background-image: url(/images/png/16/arrow2_right.png)}
+.arrow2_left_16 {background-image: url(/images/png/16/arrow2_left.png)}
+.arrow2_top_16 {background-image: url(/images/png/16/arrow2_top.png)}
+.arrow2_bottom_16 {background-image: url(/images/png/16/arrow2_bottom.png)}
 .attach_16 {background-image: url(/images/png/16/attach.png)}
 .book_open_16 {background-image: url(/images/png/16/book_open.png)}
 .cancel_16 {background-image: url(/images/png/16/cancel.png)}
@@ -171,5 +174,5 @@
 .updated_20 {background-image: url(/images/png/20/updated.png)}
 .tags_20 {background-image: url(/images/png/20/tags.png)}
 .cross_20 {background-image: url(/images/png/20/cross.png)}
-.generic_xsmall {background-image: url(/images/png/20/xsmall.png)}	
-.reply {background-image: url(/images/png/16/arrow_up.png)} 
+.generic_xsmall {background-image: url(/images/png/20/xsmall.png)}
+.reply {background-image: url(/images/png/16/arrow_up.png)}

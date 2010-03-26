@@ -1,0 +1,6 @@
+<th><%= key %></th>
+<td>
+  <%# TODO: build a custom form builder for this %>
+  #<%= input = form.text_field(key, :size => 8) %>
+  <%= color_picker_tag input.match(/id=\"(.*?)\"/)[1] %>
+</td>

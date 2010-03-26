@@ -1,0 +1,12 @@
+<% label = true if label.nil? -%>
+<% if label -%>
+<th><%= key %></th>
+<td>
+<% end -%>
+  <% form.fields_for key do |s| -%>
+  <%= s.text_field :value, :size => (size || 10) %>
+  <%= s.select :unit, %w(pt pc in mm cm px em ex %).map{|i|[i,i]} %>
+  <% end -%>
+<% if label -%>
+</td>
+<% end -%>

@@ -1,6 +1,17 @@
 <div class='tab_content tab_area' id="color_theme_tab" <%= tab_style 'color_theme' %> >
   <% form_for @appearance do |f| %>
     <%= input_selected_tab('color_theme') %>
+
+    <% f.fields_for :parameters do |p| -%>
+    <table>
+      <% CustomAppearance.available_parameters(true).each_pair.to_a[0..20].each do |key, value| %>
+      <tr>
+        <%= render :partial => "/admin/custom_appearances/color_theme/#{value[:type]}", :locals => { :form => p, :key => key } %>
+      </tr>
+      <% end -%>
+    </table>
+    <% end -%>
+
     <%= submit_tag I18n.t(:update_thing, :thing => I18n.t(:color_theme)), :class => "submit" %>
   <% end %>
 </div>

@@ -10,7 +10,7 @@ module CustomAppearanceExtension
     end
 
     def delete_bad_parameters
-      parameters.delete_if {|k, v| v.nil?}
+      parameters.delete_if {|k, v| v.nil? || v.empty?}
     end
 
     def masthead_asset_uploaded_data
@@ -113,10 +113,38 @@ module CustomAppearanceExtension
       self.parameters['masthead_display'] = display
     end
 
+    def parameters=(params)
+      current_params = self.parameters
+      params.each_pair do |key, value|
+        self.parameters[key] = if value.nil?
+                                 nil
+                               elsif value.kind_of?(String)
+                                 value
+                               elsif value.kind_of?(Hash)
+                                 case self.class.parameter_type(key).to_sym
+                                 when :border
+                                   [value[:style], value[:size], value[:color]].join(' ')
+                                 when :size
+                                   [value[:value], value[:unit]].join
+                                 when :margin
+                                   [value[:top], value[:right], value[:bottom], value[:left]].compact.join(' ')
+                                 when :padding
+                                   [value[:top], value[:right], value[:bottom], value[:left]].compact.join(' ')
+                                 when :image
+                                   "url(#{value[:url]})"
+                                 else
+                                   logger.fatal("Unhandled CA parameter: #{key.inspect} -> #{value.inspect}")
+                                 end
+                               end
+      end
+    end
+
     protected
 
     module ClassMethods
-      def available_parameters
+      def available_parameters(include_types=false)
+        @available_parameters ||= { }
+        return @available_parameters[include_types] if @available_parameters[include_types]
         parameters = {}
         # parse the constants.sass file and return the hash
         constants_lines = File.readlines(File.join(CustomAppearance::SASS_ROOT, CustomAppearance::CONSTANTS_FILENAME))
@@ -124,9 +152,27 @@ module CustomAppearanceExtension
         constants_lines.each do |l|
           k, v = l.chomp.split(/\s*=\s*/)
           k[/^!/] = ""
-          parameters[k] = v
+          type = nil
+          # types are given as comments. see note in constants.sass for details.
+          if md = v.match(%r[^(.*?)//(.*)$])
+            v, type = md[1..2]
+            if md = type.match(/type:\s*(\w+)/)
+              type = md[1]
+            else
+              type = 'default'
+            end
+          end
+          parameters[k] = include_types ? { :default => v, :type => type } : v
         end
-        parameters
+        @available_parameters[include_types] = parameters
+      end
+
+      def valid_parameter_types
+        %w(default border size margin padding color image display font)
+      end
+
+      def parameter_type(key)
+        available_parameters(true)[key]
       end
     end
   end

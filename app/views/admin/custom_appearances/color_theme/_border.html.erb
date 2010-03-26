@@ -1,0 +1,17 @@
+<th><%= key %></th>
+<td>
+  <% form.fields_for key do |b| -%>
+  <table>
+    <tr>
+      <th>Style</th>
+      <td><%= b.select :style, %w(none hidden dotted dashed solid double groove ridge inset outset).map{|i|[i,i]} %></td>
+    </tr>
+    <tr>
+      <%= render :partial => '/admin/custom_appearances/color_theme/size', :locals => { :form => b, :key => :size } %>
+    </tr>
+    <tr>
+      <%= render :partial => '/admin/custom_appearances/color_theme/color', :locals => { :form => b, :key => :color } %>
+    </tr>
+  </table>
+  <% end -%>
+</td>

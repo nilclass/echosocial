@@ -1,0 +1,35 @@
+<th><%= key %></th>
+<td>
+  <% form.fields_for key do |m| -%>
+  <table>
+    <tr>
+      <td></td>
+      <td>
+        <%= icon_tag('arrow2_top') %><br />
+        <%= render :partial => '/admin/custom_appearances/color_theme/size', :locals => {
+              :key => :top, :form => m, :label => false, :size => 2 } %>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><%= icon_tag('arrow2_left') %>
+        <%= render :partial => '/admin/custom_appearances/color_theme/size', :locals => {
+              :key => :left, :form => m, :label => false, :size => 2 } %>
+      </td>
+      <td style="border:solid 1px black"></td>
+      <td>
+        <%= render :partial => '/admin/custom_appearances/color_theme/size', :locals => {
+              :key => :right, :form => m, :label => false, :size => 2 } %>
+        <%= icon_tag('arrow2_right') %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <%= render :partial => '/admin/custom_appearances/color_theme/size', :locals => {
+              :key => :bottom, :form => m, :label => false, :size => 2 } %>
+        <br /><%= icon_tag('arrow2_bottom') %></td>
+      <td></td>
+    </tr>
+  </table>
+  <% end -%>
+</td>
