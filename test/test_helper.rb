@@ -2,6 +2,8 @@
 require 'rubygems'
 gem 'mocha'
 require 'mocha'
+gem 'faker'
+require 'faker'
 
 begin
   require 'leftright'

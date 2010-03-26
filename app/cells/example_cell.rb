@@ -1,4 +1,4 @@
-class AvatarBoxesCell < BaseCell
+class ExampleCell < ::Cell::Base
   def display
     render
   end

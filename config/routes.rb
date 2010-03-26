@@ -168,7 +168,6 @@ ActionController::Routing::Routes.draw do |map|
     map.debug_become 'debug/become', :controller => 'debug', :action => 'become'
   end
 
-
   ##
   ## DISPATCHER
   ##

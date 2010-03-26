@@ -3,4 +3,6 @@ class BaseCell < ::Cell::Base
   self.view_paths << File.join(RAILS_ROOT, 'app', 'views')
 
   helper :all
+
+  delegate :current_site, :to => :controller
 end
