@@ -88,3 +88,7 @@ form.mini_search table {
 <% end %>
 
 <%= render :partial => '/common/widget', :locals => { :widget => current_site.widgets.root } %>
+<br class="clear" />
+<% if current_user.may?(:admin, current_site) -%>
+  <%= link_to "Edit Widget Configuration", :controller => 'widget', :action => 'edit' %>
+<% end -%>

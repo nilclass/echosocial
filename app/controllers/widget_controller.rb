@@ -8,6 +8,7 @@ class WidgetController < ApplicationController
   end
 
   def edit
+    @active_tab = :home
     @root = (@widget.root || current_site.widgets.root)
     @admin_widgets = true
   end
