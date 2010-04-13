@@ -20,7 +20,10 @@
     <%= f.text_field :translation_group %>
   </p>
 
-
+  <span>
+    <%= f.check_box :use_widgets %><%= f.label :use_widgets, "Use Widgets:" %>&nbsp;use widget based configurable site home
+  </span>
+  <br />
   <span>
     <%= f.check_box :tracking %><%= f.label :tracking, 'Tracking:' %>&nbsp;if checked, we track user visits, logins and page views
   </span>

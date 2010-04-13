@@ -10,4 +10,9 @@
         r.label_for "widget_initial_state"
         r.input text_field :widget, :initial_state
       end
+      f.row do |r|
+        r.label "CSS Class"
+        r.label_for "widget_css_class"
+        r.input text_field :widget, :css_class
+      end
     end -%>

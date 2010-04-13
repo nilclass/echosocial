@@ -5,6 +5,11 @@
         r.input select :widget, :direction, [:vertical, :horizontal]
       end
       f.row do |r|
+        r.label "CSS Class"
+        r.label_for "widget_css_class"
+        r.input text_field :widget, :css_class
+      end
+      f.row do |r|
         r.label "Children"
         r.input render :partial => 'widget_children'
       end
