@@ -1,0 +1,17 @@
+<% widget ||= @widget -%>
+<% form_remote_tag(:url => {
+                     :controller => 'widget',
+                     :action => 'save',
+                     :widget_id => widget.id
+                   },
+                   :loading => show_spinner("save_widget"),
+                   :loaded => hide_spinner("save_widget")) do -%>
+<% if widget.empty? -%>
+  <%= render :partial => 'edit_box', :locals => { :widget => widget } %>
+<% else -%>
+  <%= render :partial => 'edit_widget', :locals => { :widget => widget } %>
+<% end -%>
+<br />
+<%= spinner("save_widget") %>
+<%= submit_tag "Save" %>
+<% end -%>

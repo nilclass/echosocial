@@ -9,13 +9,21 @@ class Widget < ActiveRecord::Base
 
   validates_presence_of :network_id
 
+  def display_name
+    if empty?
+      "#{direction} box"
+    else
+      "Widget #{cell_name}:#{initial_state}"
+    end
+  end
+
   def empty?
     cell_name.empty?
   end
 
   def direction=(value)
     # allow :vertical and :horizontal as direction values, even though it is a boolean
-    write_attribute(:direction, [:vertical, :horizontal].include?(value.to_sym) ? (value == :vertical) : value)
+    write_attribute(:direction, [:vertical, :horizontal].include?(value.to_sym) ? (value.to_sym == :vertical) : value)
   end
 
   def direction

@@ -1,0 +1,13 @@
+
+<%= Formy.form do |f|
+      f.row do |r|
+        r.label "Cell Name"
+        r.label_for "widget_cell_name"
+        r.input text_field :widget, :cell_name
+      end
+      f.row do |r|
+        r.label "Initial State"
+        r.label_for "widget_initial_state"
+        r.input text_field :widget, :initial_state
+      end
+    end -%>

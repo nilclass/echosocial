@@ -24,7 +24,7 @@ module WidgetRendering
   # renders administrative controls for editing the widget configuration, wrapped around the given content.
   def widgets_render_handle(widget, content)
     logger.debug("rendering widget editing controls")
-    %Q{<div class="widget_handle_wrapper"><div id="widget_handle_#{widget.id}" class="widget_handle"></div>#{content}</div>}
+    %Q{<div class="widget_handle_wrapper #{widget.css_classes.join(' ')}"><div id="widget_handle_#{widget.id}" class="widget_handle"></div>#{content}</div>}
   end
 
   # renders an empty widget (including all it's children)

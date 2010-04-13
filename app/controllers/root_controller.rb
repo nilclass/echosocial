@@ -121,7 +121,7 @@ class RootController < ApplicationController
     @group.profiles.public.create_wiki unless @group.profiles.public.wiki
     #@announcements = Page.find_by_path('limit/3/descending/created_at',options_for_group(@group, :flow => :announcement))
     @show_featured = Page.count_by_path(['featured_by', @group.id], options_for_group(@group, :limit => 1)) > 0
-    render :template => 'root/site_home'
+    render :template => 'root/site_home_widgets'
   end
 
   def login_page

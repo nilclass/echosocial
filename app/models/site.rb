@@ -58,6 +58,8 @@ class Site < ActiveRecord::Base
   serialize :profile_fields
   serialize :profiles
 
+  has_many :widgets, :through => :network
+
   # this is evil, but used in several important places:
   # (1) for i18n, to be able to customize the strings on a per site basis
   # (2) acts_as_site_limited, to be able to automatically limit all queries
