@@ -9,6 +9,10 @@ class Widget < ActiveRecord::Base
 
   validates_presence_of :network_id
 
+  def ancestors
+    parent ? parent.ancestors.push(parent) : []
+  end
+
   def display_name
     if empty?
       "#{direction} box"

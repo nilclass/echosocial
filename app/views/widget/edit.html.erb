@@ -1,16 +1,15 @@
 <style type="text/css">
   div#widget_tree { float:right; }
-  div#widget_tree ul { list-style-type:disc; }
   div#widget_tree li { padding-left:1em; }
 </style>
+<%= render :partial => '/common/widget_css' %>
 
 <h1>Widget Editor</h1>
 <div id="widget_tree">
-  <h2>Widget Tree</h2>
-  <%= widget_tree(@widget) %>
+  <%= render :partial => 'widget_tree' %>
 </div>
 <div id="widget_form">
-  <i>Click on a widget in the tree on the right to edit it.</i>
+  <br /><i>Click on a widget in the tree on the right to edit it.</i>
 </div>
 <br class="clear"/>
 <h2>Preview <%= spinner('widget_preview') %></h2>

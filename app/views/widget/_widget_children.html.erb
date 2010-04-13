@@ -1,0 +1,10 @@
+<table>
+  <% @widget.children.each do |widget| -%>
+  <tr>
+    <td><%= link_to_remote widget.display_name, :url => { :controller => 'widget', :action => 'load_form', :id => widget.id } %></td>
+    <td><%= link_to_remote("remove", :url => { :controller => 'widget', :action => 'remove', :id => widget.id }) %></td>
+  </tr>
+  <% end -%>
+</table>
+<%= link_to_remote("add box", :url => { :controller => 'widget', :action => 'add', :parent_id => @widget.id, :widget => { :direction => 'horizontal' } }) %> |
+<%= link_to_remote("add widget", :url => { :controller => 'widget', :action => 'add', :parent_id => @widget.id, :widget => { :cell_name => 'base', :initial_state => 'empty' } }) %>

@@ -5,4 +5,8 @@ class BaseCell < ::Cell::Base
   helper :all
 
   delegate :current_site, :to => :controller
+
+  def empty
+    ''
+  end
 end

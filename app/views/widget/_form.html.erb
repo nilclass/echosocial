@@ -1,8 +1,12 @@
+<% @widget.ancestors.each do |ancestor| %>
+  <%= link_to_remote(ancestor.display_name, :url => { :controller => 'widget', :action => 'load_form', :id => ancestor.id }) %> &raquo;
+<% end -%>
+<b><%= @widget.display_name %></b>
 <% widget ||= @widget -%>
 <% form_remote_tag(:url => {
                      :controller => 'widget',
                      :action => 'save',
-                     :widget_id => widget.id
+                     :id => widget.id
                    },
                    :loading => show_spinner("save_widget"),
                    :loaded => hide_spinner("save_widget")) do -%>
@@ -11,6 +15,7 @@
 <% else -%>
   <%= render :partial => 'edit_widget', :locals => { :widget => widget } %>
 <% end -%>
+<%= link_to_remote("Remove", :url => { :controller => 'widget', :action => 'remove', :id => widget.id }) %>
 <br />
 <%= spinner("save_widget") %>
 <%= submit_tag "Save" %>
